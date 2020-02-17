@@ -10,8 +10,8 @@ export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
   @Get()
-  findAll(): string {
-    return 'This action returns all cats.';
+  async findAll(): Promise<ICat[]> {
+    return this.catsService.findAll();
   }
 
   @Get(':id')
